@@ -44,9 +44,6 @@ body {
    background-color: aliceblue;
    font-size: 19px;
    color: #56A5FF;
-}
-
-.todo-list-form .todo-list-input {
    border-top-left-radius: 5px;
    border-bottom-left-radius: 5px;
 }
@@ -81,6 +78,7 @@ body {
    overflow-y: scroll;
    text-decoration:wavy;
    border-radius: 10px;
+   box-shadow: 5px 5px 100px 10px rgba(0,0,0,0.1);
 }
 
 .todo-list::-webkit-scrollbar {
