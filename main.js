@@ -1,11 +1,12 @@
-let formElement = document.querySelector(".todo-list-form")
-let inputElement = document.querySelector(".todo-list-input")
-let addElement = document.querySelector(".todo-list-btn")
+const formElement = document.querySelector(".todo-list-form")
+const inputElement = document.querySelector(".todo-list-input")
+const addElement = document.querySelector(".todo-list-btn")
+const listElement = document.querySelector(".todo-list")
 
-let listElement = document.querySelector(".todo-list")
+let todo = []
 
-addElement.onclick = (event) => {
-   event.preventDefault()
+formElement.addEventListener("submit", evt => {
+   evt.preventDefault()
    let newLiElement = document.createElement("li")
    newLiElement.classList.add("todo-items")
    let newPElement = document.createElement("p")
@@ -29,9 +30,6 @@ addElement.onclick = (event) => {
    newLiElement.appendChild(newPElement)
    newLiElement.appendChild(newbtnElement)
    listElement.appendChild(newLiElement)
-   formElement.reset()
-
-
 
    newbtnElement.addEventListener("click", e => {
       newLiElement.textContent = undefined
@@ -56,4 +54,7 @@ addElement.onclick = (event) => {
    newLiElement.addEventListener("copy", e => {
       alert("copied")
    })
-}
+
+   formElement.reset()
+   formElement.focus()
+})
