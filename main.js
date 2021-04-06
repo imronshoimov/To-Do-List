@@ -53,6 +53,7 @@ function renderItems(array) {
 
       newbtnElement.addEventListener('click', evt => {
          todo.splice(i, 1)
+         localStorage.setItem('todos', JSON.stringify(todo))
          renderItems(todo)
       })
 
@@ -66,22 +67,3 @@ function renderItems(array) {
       listElement.appendChild(newLiElement)
    })
 }
-
-// localStorage.setItem("name", "Imron")
-
-
-// let data = localStorage.getItem("name")
-
-// if (!data) {
-//    let ism = prompt("Sizning ismingiz?")
-//    localStorage.setItem("name", ism)
-// } else {
-//    alert("sizning ismingiz: " + data)
-// }
-
-// localStorage.removeItem('name')
-// console.log(data);
-
-// localStorage.setItem("ism", JSON.stringify([{ name: "Imron" }]))
-
-// console.log(JSON.stringify([{ name: "Imron" }]));
