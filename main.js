@@ -5,6 +5,13 @@ const listElement = document.querySelector(".todo-list")
 
 let todo = []
 
+if (!localStorage.getItem('todos')) {
+   localStorage.setItem('todos', JSON.stringify([]))
+} else {
+   todo = JSON.parse(localStorage.getItem('todos'));
+   renderItems(todo)
+}
+
 formElement.addEventListener("submit", evt => {
    evt.preventDefault()
    if (!inputElement.value) return alert("Please wrtie smth")
@@ -13,6 +20,7 @@ formElement.addEventListener("submit", evt => {
    }
    todo.push(newTodoObject)
    renderItems(todo)
+   localStorage.setItem('todos', JSON.stringify(todo))
 
    evt.target.reset()
    formElement.focus()
@@ -58,3 +66,22 @@ function renderItems(array) {
       listElement.appendChild(newLiElement)
    })
 }
+
+// localStorage.setItem("name", "Imron")
+
+
+// let data = localStorage.getItem("name")
+
+// if (!data) {
+//    let ism = prompt("Sizning ismingiz?")
+//    localStorage.setItem("name", ism)
+// } else {
+//    alert("sizning ismingiz: " + data)
+// }
+
+// localStorage.removeItem('name')
+// console.log(data);
+
+// localStorage.setItem("ism", JSON.stringify([{ name: "Imron" }]))
+
+// console.log(JSON.stringify([{ name: "Imron" }]));
